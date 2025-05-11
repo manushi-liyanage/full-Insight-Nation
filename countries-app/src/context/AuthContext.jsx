@@ -9,7 +9,7 @@ export const AuthProvider = ({ children }) => {
 
   const checkUser = async () => {
     try {
-      const res = await axios.get("insight-nations-production.up.railway.app/api/check-auth", {
+      const res = await axios.get("https://insight-nations-production.up.railway.app/api/check-auth", {
         withCredentials: true,
       });
       setUser({ email: res.data.user.email });
@@ -25,14 +25,14 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const login = async (formData) => {
-    const res = await axios.post("insight-nations-production.up.railway.app/api/login", formData, {
+    const res = await axios.post("https://insight-nations-production.up.railway.app/api/login", formData, {
       withCredentials: true,
     });
     setUser({ email: res.data.email });
   };
 
   const logout = async () => {
-    await axios.post("insight-nations-production.up.railway.app/api/logout", {}, {
+    await axios.post("https://insight-nations-production.up.railway.app/api/logout", {}, {
       withCredentials: true,
     });
     setUser(null);
