@@ -9,7 +9,7 @@ export const AuthProvider = ({ children }) => {
 
   const checkUser = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/check-auth", {
+      const res = await axios.get("insight-nations-production.up.railway.app/api/check-auth", {
         withCredentials: true,
       });
       setUser({ email: res.data.user.email });
@@ -25,14 +25,14 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const login = async (formData) => {
-    const res = await axios.post("http://localhost:5000/api/login", formData, {
+    const res = await axios.post("insight-nations-production.up.railway.app/api/login", formData, {
       withCredentials: true,
     });
     setUser({ email: res.data.email });
   };
 
   const logout = async () => {
-    await axios.post("http://localhost:5000/api/logout", {}, {
+    await axios.post("insight-nations-production.up.railway.app/api/logout", {}, {
       withCredentials: true,
     });
     setUser(null);
